@@ -38,4 +38,17 @@ public class LoginStepDefinitions {
     public void user_logs_in_as_a(String string) {
         loginPage.login(string);
     }
+
+    //When user logs in with "storemanager85" username and "wrong" password
+    @When("user logs in with {string} username and {string} password")
+    public void user_logs_in_with_username_and_password(String string, String string2) {
+        loginPage.login(string, string2);
+    }
+
+    @Then("user verifies that {string} message is displayed")
+    public void user_verifies_that_message_is_displayed(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
 }
