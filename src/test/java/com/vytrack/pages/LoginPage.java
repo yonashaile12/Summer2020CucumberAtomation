@@ -18,7 +18,7 @@ public class LoginPage extends BasePage {
     @FindBy(css = "[class='alert alert-error']")
     private WebElement warningMessage;
 
-    public String getWarningMessageTest() {
+    public String getWarningMessageText() {
         return warningMessage.getText().trim();
     }
 
