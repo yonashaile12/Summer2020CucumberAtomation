@@ -26,6 +26,22 @@ public class Hooks {
         Driver.getDriver().manage().window().maximize();
         Driver.getDriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
+//    this hook will run only before scenarios with a tag @db
+
+    /**
+     * @db
+     * Scenario: I don't know but here I'm connecting to DB
+     * Given user runs following query "SELECT * ...."
+     */
+    @Before("@db")
+    public void dbSetup(){
+        System.out.println("::: Connecting to the database:::");
+    }
+
+    @After("@db")
+    public void dbTearDown(){
+        System.out.println("::: Disconnecting from the database:::");
+    }
 
     @After
     public void tearDown() {
