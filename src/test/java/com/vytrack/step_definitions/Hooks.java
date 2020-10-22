@@ -23,7 +23,6 @@ public class Hooks {
 
     @Before
     public void setup(Scenario scenario) {
-        System.out.println(scenario.getSourceTagNames());
         System.out.println("::: Starting Automation:::");
         Driver.getDriver().manage().window().maximize();
         Driver.getDriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
@@ -31,19 +30,18 @@ public class Hooks {
 //    this hook will run only before scenarios with a tag @db
 
     /**
-     * @db
-     * Scenario: I don't know but here I'm connecting to DB
+     * @db Scenario: I don't know but here I'm connecting to DB
      * Given user runs following query "SELECT * ...."
-     *
+     * <p>
      * order = 0 - to define hooks execution order
      */
     @Before(value = "@db", order = 0)
-    public void dbSetup(){
+    public void dbSetup() {
         System.out.println("::: Connecting to the database:::");
     }
 
     @After("@db")
-    public void dbTearDown(){
+    public void dbTearDown() {
         System.out.println("::: Disconnecting from the database:::");
     }
 
