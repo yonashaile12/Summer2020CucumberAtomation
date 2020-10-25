@@ -24,10 +24,11 @@ public class CreateCarPage extends BasePage {
         System.out.println("Clicking on 'Create car' button");
     }
 
-    public void enterLicensePlate(String licensePlate){
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 20);
-        wait.until(ExpectedConditions.visibilityOf(licencePlateInputBox));
-        licencePlateInputBox.clear();
-        licencePlateInputBox.sendKeys(licensePlate);
+    public void enterLicensePlate(String licensePlate) {
+        BrowserUtils.enterText(licencePlateInputBox, licensePlate);
     }
+
+    /**
+     * sometimes, for very longs string webdriver might enter text not fully.
+     */
 }
