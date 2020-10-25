@@ -1,5 +1,6 @@
 package com.vytrack.pages;
 
+import com.vytrack.utils.BrowserUtils;
 import com.vytrack.utils.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -21,5 +22,12 @@ public class CreateCarPage extends BasePage {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 20);
         wait.until(ExpectedConditions.elementToBeClickable(createCarBtn)).click();
         System.out.println("Clicking on 'Create car' button");
+    }
+
+    public void enterLicensePlate(String licensePlate){
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 20);
+        wait.until(ExpectedConditions.visibilityOf(licencePlateInputBox));
+        licencePlateInputBox.clear();
+        licencePlateInputBox.sendKeys(licensePlate);
     }
 }
