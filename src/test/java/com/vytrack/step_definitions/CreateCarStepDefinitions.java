@@ -40,6 +40,8 @@ public class CreateCarStepDefinitions {
      *
      * @Then("user verifies following list:")
      * public void user_verifies_following_list(List<String> dataTable){}
+     *
+     * DataTable - cucumber data structure/data type. We convert it into Map, List or List<Map<>>
      */
     @When("user adds new vehicle information")
     public void user_adds_new_vehicle_information(Map<String, String> dataTable) {
@@ -52,5 +54,7 @@ public class CreateCarStepDefinitions {
 
         System.out.println("License plate: " + dataTable.get("License Plate"));
         System.out.println("Model year: " + dataTable.get("Model Year"));
+
+        createCarPage.enterLicensePlate(dataTable.get("License Plate"));
     }
 }
