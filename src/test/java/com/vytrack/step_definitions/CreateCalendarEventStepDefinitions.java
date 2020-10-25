@@ -11,7 +11,7 @@ public class CreateCalendarEventStepDefinitions {
 
     @Given("user clicks on create calendar event button")
     public void user_clicks_on_create_calendar_event_button() {
-
+        createCalendarEventPage.clickOnCreateCalendarEvent();
     }
 
     /*
@@ -20,10 +20,10 @@ public class CreateCalendarEventStepDefinitions {
      */
     @When("user adds new calendar event information")
     public void user_adds_new_calendar_event_information(Map<String, String> data) {
-       String title = data.get("Title");
-       String description = data.get("Description");
+        String title = data.get("Title");
+        String description = data.get("Description");
 
-       createCalendarEventPage.enterDescription(description);
-       createCalendarEventPage.enterTitle(title);
+        createCalendarEventPage.enterDescription(description);
+        createCalendarEventPage.enterTitle(title);
     }
 }
