@@ -22,6 +22,10 @@ public class CreateCalendarEventPage extends BasePage {
         BrowserUtils.enterText(titleInputBox, text);
     }
 
+    public void clickOnCreateCalendarEvent(){
+        BrowserUtils.clickOnElement(createCalendarEventBtn);
+    }
+
     public void enterDescription(String text){
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 20);
         //exit from all frames

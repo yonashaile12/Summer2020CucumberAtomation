@@ -1,25 +1,29 @@
 package com.vytrack.step_definitions;
 
+import com.vytrack.pages.CreateCalendarEventPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 
+import java.util.Map;
+
 public class CreateCalendarEventStepDefinitions {
+    CreateCalendarEventPage createCalendarEventPage = new CreateCalendarEventPage();
 
     @Given("user clicks on create calendar event button")
     public void user_clicks_on_create_calendar_event_button() {
 
     }
 
-
+    /*
+      | Title       | B20 Graduation Party                        |
+      | Description | All B20 friends are invited for this party! |
+     */
     @When("user adds new calendar event information")
-    public void user_adds_new_calendar_event_information(io.cucumber.datatable.DataTable dataTable) {
-        // Write code here that turns the phrase above into concrete actions
-        // For automatic transformation, change DataTable to one of
-        // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
-        // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
-        // Double, Byte, Short, Long, BigInteger or BigDecimal.
-        //
-        // For other transformations you can register a DataTableType.
-        throw new io.cucumber.java.PendingException();
+    public void user_adds_new_calendar_event_information(Map<String, String> data) {
+       String title = data.get("Title");
+       String description = data.get("Description");
+
+       createCalendarEventPage.enterDescription(description);
+       createCalendarEventPage.enterTitle(title);
     }
 }
