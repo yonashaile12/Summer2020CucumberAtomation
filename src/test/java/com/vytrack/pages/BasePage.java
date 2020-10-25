@@ -18,6 +18,9 @@ public abstract class BasePage {
     @FindBy(xpath = "(//button[contains(text(),'Save and Close')])[1]")
     protected WebElement saveAndCloseBtn;
 
+    @FindBy(css = "[class='loader-mask']")
+    protected WebElement loaderMask;
+
     public BasePage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
@@ -37,6 +40,8 @@ public abstract class BasePage {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 30);
         String tabXpath = "//*[contains(text(),'" + tab + "') and @class='title title-level-1']";
         String moduleXpath = "//*[contains(text(),'" + module + "') and @class='title title-level-2']";
+        //wait until loader mask disappears
+        wait.until(ExpectedConditions.invisibilityOf(loaderMask));
 
         //wait for presence and ability co click on element
         WebElement tabElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(tabXpath)));
@@ -44,6 +49,9 @@ public abstract class BasePage {
 
         WebElement moduleElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(moduleXpath)));
         wait.until(ExpectedConditions.elementToBeClickable(moduleElement)).click();
+
+        //wait until loader mask disappears
+        wait.until(ExpectedConditions.invisibilityOf(loaderMask));
     }
 
     public void clickSaveAndClose(){
