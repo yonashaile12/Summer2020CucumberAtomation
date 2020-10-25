@@ -40,6 +40,8 @@ public abstract class BasePage {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 30);
         String tabXpath = "//*[contains(text(),'" + tab + "') and @class='title title-level-1']";
         String moduleXpath = "//*[contains(text(),'" + module + "') and @class='title title-level-2']";
+
+        BrowserUtils.wait(4);
         //wait until loader mask disappears
         wait.until(ExpectedConditions.invisibilityOf(loaderMask));
 
@@ -52,6 +54,8 @@ public abstract class BasePage {
 
         //wait until loader mask disappears
         wait.until(ExpectedConditions.invisibilityOf(loaderMask));
+
+        BrowserUtils.wait(4);
     }
 
     public void clickSaveAndClose(){
