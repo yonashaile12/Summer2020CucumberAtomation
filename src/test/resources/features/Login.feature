@@ -9,16 +9,16 @@ Feature: As user I want to be able to login under different roles
   Scenario: Login as a sales manger
     When user logs in
     Then user should see dashboard page
-
-  @parametrized_test @smoke_test
-  Scenario: Parametrized login
-    When user logs in as a "store manager"
-    Then user should see dashboard page
-
-  @parametrized_test @smoke_test
-  Scenario: Parametrized login
-    When user logs in as a "sales manager"
-    Then user should see dashboard page
+#
+#  @parametrized_test @smoke_test
+#  Scenario: Parametrized login
+#    When user logs in as a "store manager"
+#    Then user should see dashboard page
+#
+#  @parametrized_test @smoke_test
+#  Scenario: Parametrized login
+#    When user logs in as a "sales manager"
+#    Then user should see dashboard page
 
   @s_o
   Scenario Outline: Parametrized login as <role>
@@ -29,6 +29,18 @@ Feature: As user I want to be able to login under different roles
       | role          |
       | sales manager |
       | store manager |
+      | driver        |
+
+  @s_o @with_two_columns
+  Scenario Outline: Parametrized login as <role>
+    When user logs in as a "<role>"
+    Then user should see "dashboard" page
+
+    Examples:
+      | role          | page_title      |
+      | sales manager | Dashboard       |
+      | store manager | Dashboard       |
+      | driver        | Quick Launchpad |
 
 #    role - variable. You can name parameters as you want.
 #   1st row always reserved for parameters
