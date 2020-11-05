@@ -21,7 +21,7 @@ Feature: As user I want to be able to login under different roles
     Then user should see dashboard page
 
   @s_o
-  Scenario Outline: Parametrized login
+  Scenario Outline: Parametrized login as <role>
     When user logs in as a "<role>"
     Then user should see dashboard page
 
