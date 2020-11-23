@@ -43,7 +43,7 @@ public class Hooks {
 
     @After("@db")
     public void dbTearDown() {
-        System.out.println("::: Disconnecting from the database:::");
+        System.out.println("::: Disconnecting from the database :::");
     }
 
     @After
